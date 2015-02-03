@@ -1,3 +1,7 @@
+Meteor.publish('currentUser', function() {
+    return Meteor.users.find(this.userId, {fields: {createdAt: 1, intercomHash: 1}});
+});
+
 Meteor.publish('posts', function(options) {
     check(options, {
         sort: Object,
